@@ -1,0 +1,39 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>Buyorders list</h1>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Validatedate</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for buyOrder in buyOrders %}
+            <tr>
+                <td><a href="{{ path('admin_buyorder_show', { 'id': buyOrder.id }) }}">{{ buyOrder.id }}</a></td>
+                <td>{% if buyOrder.validateDate %}{{ buyOrder.validateDate|date('Y-m-d H:i:s') }}{% endif %}</td>
+                <td>
+                    <ul>
+                        <li>
+                            <a href="{{ path('admin_buyorder_show', { 'id': buyOrder.id }) }}">show</a>
+                        </li>
+                        <li>
+                            <a href="{{ path('admin_buyorder_edit', { 'id': buyOrder.id }) }}">edit</a>
+                        </li>
+                    </ul>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <ul>
+        <li>
+            <a href="{{ path('admin_buyorder_new') }}">Create a new buyOrder</a>
+        </li>
+    </ul>
+{% endblock %}

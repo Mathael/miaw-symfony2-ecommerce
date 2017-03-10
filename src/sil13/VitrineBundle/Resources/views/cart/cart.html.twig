@@ -1,0 +1,43 @@
+{% extends '::base.html.twig' %}
+
+{% block body %}
+    {% if cart | length != 0 %}
+        <table class="table table-striped table-hover ">
+        <thead>
+        <tr>
+            <th>Nom</th>
+            <th>Quantité</th>
+            <th>Prix unitaire</th>
+            <th>Actions</th>
+        </tr>
+        </thead>
+        <tbody>
+            {% for holder in cart %}
+            <tr>
+                <td>
+                    {{ holder.article.name }}
+                </td>
+                <td>
+                    {{ holder.quantity }}
+                </td>
+                <td>
+                    {{  holder.article.price }}€
+                </td>
+                <td>
+                    <a class="btn btn-sm btn-default btn-danger" href="{{ path('cart_remove_buy_order', { id: holder.article.id }) }}">Supprimer</a>
+                </td>
+            </tr>
+            {% endfor %}
+            <tr>
+                <td>Total</td>
+                <td></td>
+                <td>{{ total }}€</td>
+                <td></td>
+            </tr>
+        </tbody>
+    </table>
+    <a href="{{ path('cart_validate') }}" class="btn btn-success">Valider le panier</a>
+    {% else %}
+        <p>Votre panier est vide.</p>
+    {% endif %}
+{% endblock %}

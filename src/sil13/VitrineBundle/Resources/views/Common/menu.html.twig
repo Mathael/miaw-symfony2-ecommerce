@@ -1,0 +1,42 @@
+<nav class="navbar navbar-default">
+    <div class="container-fluid">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="{{ path('sil13_vitrine_homepage') }}">E-Buy</a>
+        </div>
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+            <ul class="nav navbar-nav">
+                <li class="active"><a href="{{ path('article_index') }}">Tous les articles <span class="sr-only">(current)</span></a></li>
+                <li><a href="{{ path('article_mostwanted') }}">Les plus achetés</a></li>
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Catégories <span class="caret"></span></a>
+                    {% render controller('sil13VitrineBundle:Category:index') %}
+                </li>
+            </ul>
+            <form class="navbar-form navbar-left" role="search" action="{{ url('article_search') }}" method="POST">
+                <div class="form-group">
+                    <input type="text" class="form-control" name="article-srch" placeholder="Rechercher un article">
+                </div>
+                <button type="submit" class="btn btn-default">Submit</button>
+            </form>
+            <ul class="nav navbar-nav navbar-right">
+                {% if is_granted("IS_AUTHENTICATED_REMEMBERED") %}
+                    <li><a href="{{ path('me_mycart') }}">Mes commandes</a></li>
+                    <li><a href="{{ path('show_cart') }}">Mon Panier</a></li>
+                    {% if is_granted('ROLE_ADMIN') %}
+                        <li><a href="{{ path('sil13_admin_homepage') }}">Administration</a></li>
+                    {% endif %}
+                    <li><a href="{{ path('fos_user_security_logout') }}">Déconnexion [{{ app.user.username }}]</a></li>
+                {% else %}
+                    <li><a href="{{ path('fos_user_security_login') }}">Connexion</a></li>
+                    <li><a href="{{ path('fos_user_registration_register') }}">M'inscrire</a></li>
+                {% endif %}
+            </ul>
+        </div>
+    </div>
+</nav>

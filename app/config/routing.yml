@@ -1,0 +1,10 @@
+sil13_admin:
+    resource: "@sil13AdminBundle/Resources/config/routing.yml"
+    prefix:   /admin
+
+sil13_vitrine:
+    resource: "@sil13VitrineBundle/Resources/config/routing.yml"
+    prefix:   /
+
+fos_user:
+    resource: "@FOSUserBundle/Resources/config/routing/all.xml"

@@ -1,0 +1,35 @@
+cart_add_article:
+    path:     /add/{id}
+    defaults: { _controller: "sil13VitrineBundle:Cart:add"}
+    methods:  POST
+    requirements:
+        id: \d+
+
+cart_remove_article:
+    path:     /remove/{id}
+    defaults: { _controller: "sil13VitrineBundle:Cart:removeAmount"}
+    methods:  POST
+    requirements:
+        id: \d+
+
+cart_remove_buy_order:
+    path:   /delete/{id}
+    defaults: { _controller: "sil13VitrineBundle:Cart:remove" }
+    methods:  GET
+    requirements:
+        id: \d+
+
+cart_validate:
+    path:   /validate
+    defaults: { _controller: "sil13VitrineBundle:Cart:validate" }
+    methods:  GET
+
+show_cart:
+    path:     /{small}
+    defaults: { _controller: "sil13VitrineBundle:Cart:show", small: false}
+    methods:  GET
+
+clear_cart:
+    path:     /clear
+    defaults: { _controller: "sil13VitrineBundle:Cart:clear"}
+    methods:  GET

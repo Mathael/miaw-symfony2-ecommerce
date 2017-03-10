@@ -1,0 +1,19 @@
+sil13\VitrineBundle\Entity\Category:
+    type: entity
+    table: null
+    repositoryClass: sil13\VitrineBundle\Repository\CategoryRepository
+    id:
+        id:
+            type: integer
+            id: true
+            generator:
+                strategy: AUTO
+    fields:
+        name:
+            type: string
+            length: '30'
+    oneToMany:
+        articles:
+          mappedBy: category
+          targetEntity: sil13\VitrineBundle\Entity\Article
+    lifecycleCallbacks: {  }

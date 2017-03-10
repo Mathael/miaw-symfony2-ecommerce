@@ -1,0 +1,4 @@
+me_mycart:
+    path:     /
+    defaults: { _controller: "sil13VitrineBundle:User:myCart" }
+    methods:  GET

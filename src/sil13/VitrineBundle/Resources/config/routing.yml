@@ -1,0 +1,23 @@
+sil13_vitrine_article:
+    resource: "@sil13VitrineBundle/Resources/config/routing/article.yml"
+    prefix:   /article
+
+sil13_vitrine_category:
+    resource: "@sil13VitrineBundle/Resources/config/routing/category.yml"
+    prefix:   /category
+
+sil13_vitrine_order:
+    resource: "@sil13VitrineBundle/Resources/config/routing/cart.yml"
+    prefix:   /cart
+
+sil13_vitrine_me:
+    resource: "@sil13VitrineBundle/Resources/config/routing/me.yml"
+    prefix:   /me
+
+sil13_vitrine_homepage:
+    path:     /
+    defaults: { _controller: sil13VitrineBundle:Article:index }
+
+sil13_vitrine_install:
+    path:     /install
+    defaults: { _controller: sil13VitrineBundle:Default:index }

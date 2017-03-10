@@ -1,0 +1,24 @@
+admin_orderline_index:
+    path:     /
+    defaults: { _controller: "sil13AdminBundle:OrderLine:index" }
+    methods:  GET
+
+admin_orderline_show:
+    path:     /{id}/show
+    defaults: { _controller: "sil13AdminBundle:OrderLine:show" }
+    methods:  GET
+
+admin_orderline_new:
+    path:     /new
+    defaults: { _controller: "sil13AdminBundle:OrderLine:new" }
+    methods:  [GET, POST]
+
+admin_orderline_edit:
+    path:     /{id}/edit
+    defaults: { _controller: "sil13AdminBundle:OrderLine:edit" }
+    methods:  [GET, POST]
+
+admin_orderline_delete:
+    path:     /{id}/delete
+    defaults: { _controller: "sil13AdminBundle:OrderLine:delete" }
+    methods:  DELETE

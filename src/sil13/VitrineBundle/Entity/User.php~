@@ -1,0 +1,117 @@
+<?php
+/**
+ * @author LEBOC Philippe.
+ * Date: 30/11/2016
+ * Time: 09:16
+ */
+namespace sil13\VitrineBundle\Entity;
+
+use Doctrine\Common\Collections\ArrayCollection;
+use FOS\UserBundle\Model\User as BaseUser;
+use Doctrine\ORM\Mapping as ORM;
+
+/**
+ * @ORM\Entity
+ * @ORM\Table(name="fos_user")
+ */
+class User extends BaseUser
+{
+    /**
+     * @ORM\Id
+     * @ORM\Column(type="integer")
+     * @ORM\GeneratedValue(strategy="AUTO")
+     */
+    protected $id;
+
+    /**
+     * @var ArrayCollection
+     */
+    private $orderLines;
+
+    public function __construct() {
+        parent::__construct();
+        $this->setOrderLines(new ArrayCollection());
+    }
+
+    /**
+     * @param ArrayCollection $orderLines
+     * @return User
+     */
+    public function setOrderLines($orderLines)
+    {
+        $this->orderLines = $orderLines;
+        return $this;
+    }
+
+    /**
+     * Add orderLine
+     *
+     * @param OrderLine $orderLine
+     *
+     * @return User
+     */
+    public function addOrderLine(OrderLine $orderLine)
+    {
+        $this->orderLines[] = $orderLine;
+        return $this;
+    }
+
+    /**
+     * Remove orderLine
+     *
+     * @param OrderLine $orderLine
+     */
+    public function removeOrderLine(OrderLine $orderLine)
+    {
+        $this->orderLines->removeElement($orderLine);
+    }
+
+    /**
+     * Get orderLines
+     *
+     * @return ArrayCollection
+     */
+    public function getOrderLines()
+    {
+        return $this->orderLines;
+    }
+    /**
+     * @var \Doctrine\Common\Collections\Collection
+     */
+    private $buyOrders;
+
+
+    /**
+     * Add buyOrder
+     *
+     * @param \sil13\VitrineBundle\Entity\BuyOrder $buyOrder
+     *
+     * @return User
+     */
+    public function addBuyOrder(\sil13\VitrineBundle\Entity\BuyOrder $buyOrder)
+    {
+        $this->buyOrders[] = $buyOrder;
+
+        return $this;
+    }
+
+    /**
+     * Remove buyOrder
+     *
+     * @param \sil13\VitrineBundle\Entity\BuyOrder $buyOrder
+     */
+    public function removeBuyOrder(\sil13\VitrineBundle\Entity\BuyOrder $buyOrder)
+    {
+        $this->buyOrders->removeElement($buyOrder);
+    }
+
+    /**
+     * Get buyOrders
+     *
+     * @return \Doctrine\Common\Collections\Collection
+     */
+    public function getBuyOrders()
+    {
+        return $this->buyOrders;
+    }
+}

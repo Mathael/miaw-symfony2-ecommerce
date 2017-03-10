@@ -1,0 +1,43 @@
+sil13\VitrineBundle\Entity\Article:
+    type: entity
+    table: null
+    repositoryClass: sil13\VitrineBundle\Repository\ArticleRepository
+    id:
+        id:
+            type: integer
+            id: true
+            generator:
+                strategy: AUTO
+    fields:
+        name:
+            type: string
+            length: '30'
+            nullable: false
+        description:
+            type: string
+            length: 1000
+            nullable: true
+        marque:
+            type: string
+            length: 50
+            nullable: true
+        price:
+            type: integer
+            length: 4
+            nullable: false
+        imageName:
+            type: string
+            length: 100
+            nullable: true
+        isSoldOut:
+            type: boolean
+            nullable: false
+        isDisabled:
+            type: boolean
+            nullable: false
+            default: false
+    manyToOne:
+        category:
+            inversedBy: articles
+            targetEntity: sil13\VitrineBundle\Entity\Category
+    lifecycleCallbacks: {  }

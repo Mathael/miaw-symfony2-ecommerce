@@ -1,0 +1,48 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h2>Commandes réalisées</h2>
+    {% if buyOrders %}
+    {% for buyOrder in buyOrders|reverse(true) %}
+    <h3>Commande #{{ buyOrder.id }}</h3>
+    <p>Commande de {{ buyOrder.orderLines | length }} article(s) réalisée le {{ buyOrder.validateDate | date('d / m / y H:m:s') }}</p>
+    <table class="table table-striped table-hover">
+        <thead>
+            <tr>
+                <th>Nom de l'article</th>
+                <th>Quantité</th>
+                <th>Prix unitaire</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for line in buyOrder.orderLines %}
+        <tr>
+            <td>
+                {{ line.article.name }}
+            </td>
+            <td>
+                {{ line.count }}
+            </td>
+            <td>
+                {{ line.price }}€
+            </td>
+        </tr>
+        {% endfor %}
+        <tr class="active">
+            <td>
+                Total
+            </td>
+            <td>
+                {{ buyOrder.orderLines | length }} article(s)
+            </td>
+            <td>
+                {{ buyOrder.getTotalPrice }}€
+            </td>
+        </tr>
+        </tbody>
+    </table>
+    {% endfor %}
+    {% else %}
+        <p>L'historique de vos commande est vide.</p>
+    {% endif %}
+{% endblock %}

@@ -1,0 +1,24 @@
+sil13_admin_homepage:
+    path:     /
+    defaults: { _controller: sil13AdminBundle:Default:index }
+    methods:  GET
+
+sil13_admin_user:
+    resource: "@sil13AdminBundle/Resources/config/routing/user.yml"
+    prefix:   /user
+
+sil13_admin_article:
+    resource: "@sil13AdminBundle/Resources/config/routing/article.yml"
+    prefix:   /article
+
+sil13_admin_category:
+    resource: "@sil13AdminBundle/Resources/config/routing/category.yml"
+    prefix:   /category
+
+sil13_admin_buyorder:
+    resource: "@sil13AdminBundle/Resources/config/routing/buyorder.yml"
+    prefix:   /buyorder
+
+sil13_admin_orderline:
+    resource: "@sil13AdminBundle/Resources/config/routing/orderline.yml"
+    prefix:   /orderline

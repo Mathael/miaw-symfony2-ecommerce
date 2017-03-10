@@ -1,0 +1,163 @@
+<?php
+
+namespace sil13\VitrineBundle\Entity;
+
+/**
+ * Kart
+ */
+class Kart
+{
+    /**
+     * @var int
+     */
+    private $id;
+
+
+    /**
+     * Get id
+     *
+     * @return int
+     */
+    public function getId()
+    {
+        return $this->id;
+    }
+    /**
+     * @var \Doctrine\Common\Collections\Collection
+     */
+    private $articles;
+
+    /**
+     * Constructor
+     */
+    public function __construct()
+    {
+        $this->articles = new \Doctrine\Common\Collections\ArrayCollection();
+    }
+
+    /**
+     * Add article
+     *
+     * @param \sil13\VitrineBundle\Entity\Article $article
+     *
+     * @return Kart
+     */
+    public function addArticle(\sil13\VitrineBundle\Entity\Article $article)
+    {
+        $this->articles[] = $article;
+
+        return $this;
+    }
+
+    /**
+     * Remove article
+     *
+     * @param \sil13\VitrineBundle\Entity\Article $article
+     */
+    public function removeArticle(\sil13\VitrineBundle\Entity\Article $article)
+    {
+        $this->articles->removeElement($article);
+    }
+
+    /**
+     * Get articles
+     *
+     * @return \Doctrine\Common\Collections\Collection
+     */
+    public function getArticles()
+    {
+        return $this->articles;
+    }
+
+    /**
+     * Set articles
+     *
+     * @param \sil13\VitrineBundle\Entity\Article $articles
+     *
+     * @return Kart
+     */
+    public function setArticles(\sil13\VitrineBundle\Entity\Article $articles = null)
+    {
+        $this->articles = $articles;
+
+        return $this;
+    }
+    /**
+     * @var \Doctrine\Common\Collections\Collection
+     */
+    private $users;
+
+
+    /**
+     * Add user
+     *
+     * @param \sil13\VitrineBundle\Entity\User $user
+     *
+     * @return Kart
+     */
+    public function addUser(\sil13\VitrineBundle\Entity\User $user)
+    {
+        $this->users[] = $user;
+
+        return $this;
+    }
+
+    /**
+     * Remove user
+     *
+     * @param \sil13\VitrineBundle\Entity\User $user
+     */
+    public function removeUser(\sil13\VitrineBundle\Entity\User $user)
+    {
+        $this->users->removeElement($user);
+    }
+
+    /**
+     * Get users
+     *
+     * @return \Doctrine\Common\Collections\Collection
+     */
+    public function getUsers()
+    {
+        return $this->users;
+    }
+    /**
+     * @var \Doctrine\Common\Collections\Collection
+     */
+    private $orders;
+
+
+    /**
+     * Add order
+     *
+     * @param \sil13\VitrineBundle\Entity\BuyOrder $order
+     *
+     * @return Kart
+     */
+    public function addOrder(\sil13\VitrineBundle\Entity\BuyOrder $order)
+    {
+        $this->orders[] = $order;
+
+        return $this;
+    }
+
+    /**
+     * Remove order
+     *
+     * @param \sil13\VitrineBundle\Entity\BuyOrder $order
+     */
+    public function removeOrder(\sil13\VitrineBundle\Entity\BuyOrder $order)
+    {
+        $this->orders->removeElement($order);
+    }
+
+    /**
+     * Get orders
+     *
+     * @return \Doctrine\Common\Collections\Collection
+     */
+    public function getOrders()
+    {
+        return $this->orders;
+    }
+}

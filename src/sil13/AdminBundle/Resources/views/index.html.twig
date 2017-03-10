@@ -1,0 +1,10 @@
+{% extends 'base.html.twig' %}
+{% block body %}
+<h1>Bienvenue sur l'administration</h1>
+<ul>
+    <li><a class="btn btn-block" href="{{ path('admin_article_index') }}">Articles</a></li>
+    <li><a class="btn btn-block" href="{{ path('admin_category_index') }}">Catégories</a></li>
+    <li><a class="btn btn-block" href="{{ path('admin_buyorder_index') }}">Commandes</a></li>
+    <li><a class="btn btn-block" href="{{ path('admin_orderline_index') }}">Lignes de commandes</a></li>
+</ul>
+{% endblock %}

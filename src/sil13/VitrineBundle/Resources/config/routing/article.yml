@@ -1,0 +1,19 @@
+article_index:
+    path:     /
+    defaults: { _controller: "sil13VitrineBundle:Article:index" }
+    methods:  GET
+
+article_show:
+    path:     /{id}/show
+    defaults: { _controller: "sil13VitrineBundle:Article:show" }
+    methods:  GET
+
+article_mostwanted:
+    path:     /mostwanted
+    defaults: { _controller: "sil13VitrineBundle:Article:showMostWantedArticles" }
+    methods:  GET
+
+article_search:
+    path:     /search
+    defaults: { _controller: "sil13VitrineBundle:Article:search" }
+    methods:  POST

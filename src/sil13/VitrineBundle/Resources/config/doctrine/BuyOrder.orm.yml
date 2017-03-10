@@ -1,0 +1,23 @@
+sil13\VitrineBundle\Entity\BuyOrder:
+    type: entity
+    table: null
+    repositoryClass: sil13\VitrineBundle\Repository\BuyOrderRepository
+    id:
+        id:
+            type: integer
+            id: true
+            generator:
+                strategy: AUTO
+    fields:
+        validateDate:
+            type: datetime
+    manyToOne:
+        user:
+            inversedBy: buyOrders
+            targetEntity: sil13\VitrineBundle\Entity\User
+    oneToMany:
+        orderLines:
+            mappedBy: buyOrder
+            targetEntity: sil13\VitrineBundle\Entity\OrderLine
+            cascade: ['persist', 'remove']
+    lifecycleCallbacks: {  }

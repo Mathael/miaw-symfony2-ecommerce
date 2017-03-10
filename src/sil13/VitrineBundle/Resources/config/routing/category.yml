@@ -1,0 +1,9 @@
+category_index:
+    path:     /
+    defaults: { _controller: "sil13VitrineBundle:Category:index" }
+    methods:  GET
+
+category_show:
+    path:     /{id}/show
+    defaults: { _controller: "sil13VitrineBundle:Category:show" }
+    methods:  GET
